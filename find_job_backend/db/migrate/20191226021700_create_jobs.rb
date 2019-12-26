@@ -9,11 +9,16 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.string :city
       t.integer :zipcode
       t.integer :pay
-      t.string :type
+      t.string :job_type
       t.string :intro
       t.string :requirement
       t.string :employer_strongpoints
       t.string :benefits
+      t.string :education
+      t.string :schedule
+      t.string :description
+      t.string :duties
+      t.string :url
       t.string :industry
       t.boolean :applied_key
       t.boolean :favorite_key

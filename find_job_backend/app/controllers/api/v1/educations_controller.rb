@@ -24,6 +24,7 @@ class Api::V1::EducationsController < ApplicationController
       render json: education
     else
       render json: education.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

@@ -24,6 +24,7 @@ class Api::V1::ToDosController < ApplicationController
       render json: to_do
     else
       render json: to_do.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

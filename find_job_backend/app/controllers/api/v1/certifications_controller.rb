@@ -24,6 +24,7 @@ class Api::V1::CertificationsController < ApplicationController
       render json: certification
     else
       render json: certification.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

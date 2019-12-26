@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
 
   create_table "certifications", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "descripton"
+    t.string "description"
     t.string "issued_by"
     t.date "issuing_date"
     t.boolean "renewable"
@@ -71,11 +71,16 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
     t.string "city"
     t.integer "zipcode"
     t.integer "pay"
-    t.string "type"
+    t.string "job_type"
     t.string "intro"
     t.string "requirement"
     t.string "employer_strongpoints"
     t.string "benefits"
+    t.string "education"
+    t.string "schedule"
+    t.string "description"
+    t.string "duties"
+    t.string "url"
     t.string "industry"
     t.boolean "applied_key"
     t.boolean "favorite_key"
@@ -145,8 +150,7 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
     t.string "country"
     t.string "state"
     t.string "city"
-    t.string "age"
-    t.string "integer"
+    t.integer "age"
     t.string "highest_education"
     t.string "years_of_experience"
     t.datetime "created_at", precision: 6, null: false

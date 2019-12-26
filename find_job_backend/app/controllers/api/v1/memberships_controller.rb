@@ -24,6 +24,7 @@ class Api::V1::MembershipsController < ApplicationController
       render json: membership
     else
       render json: membership.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

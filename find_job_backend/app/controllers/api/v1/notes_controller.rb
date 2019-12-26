@@ -24,6 +24,7 @@ class Api::V1::NotesController < ApplicationController
       render json: note
     else
       render json: note.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

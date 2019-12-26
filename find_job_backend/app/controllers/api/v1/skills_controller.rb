@@ -24,6 +24,7 @@ class Api::V1::SkillsController < ApplicationController
       render json: skill
     else
       render json: skill.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -33,6 +34,6 @@ class Api::V1::SkillsController < ApplicationController
   private
 
   def skill_params
-    params.require(:skill).permit(:job_id, :text)
+    params.require(:skill).permit(:job_id, :description, :proficiency_level)
   end
 end

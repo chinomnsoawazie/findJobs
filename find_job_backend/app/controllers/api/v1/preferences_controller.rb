@@ -24,6 +24,7 @@ class Api::V1::PreferencesController < ApplicationController
       render json: preference
     else
       render json: preference.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

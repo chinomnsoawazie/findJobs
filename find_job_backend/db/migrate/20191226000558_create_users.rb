@@ -9,8 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :country
       t.string :state
       t.string :city
-      t.string :age
-      t.string :integer
+      t.integer :age
       t.string :highest_education
       t.string :years_of_experience
 

@@ -24,6 +24,7 @@ class Api::V1::JobsController < ApplicationController
       render json: job
     else
       render json: job.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -33,6 +34,6 @@ class Api::V1::JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:user_id, :job_title, :company_name, :country, :state, :city, :zipcode, :pay, :type, :intro, :requirement, :employer_strongpoints, :benefits, :education, :schedule, :description, :duties, :url, :industry, :applied_key, :favorited_key)
+    params.require(:job).permit(:user_id, :job_title, :company_name, :country, :state, :city, :zipcode, :pay, :job_type, :intro, :requirement, :employer_strongpoints, :benefits, :education, :schedule, :description, :duties, :url, :industry, :applied_key, :favorited_key)
   end
 end

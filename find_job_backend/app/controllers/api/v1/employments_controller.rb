@@ -24,6 +24,7 @@ class Api::V1::EmploymentsController < ApplicationController
       render json: employment
     else
       render json: employment.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
