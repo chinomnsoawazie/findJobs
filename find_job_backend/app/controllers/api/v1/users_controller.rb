@@ -1,6 +1,12 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
+  def index
+    @user = User.all
+    render json: @users
+
+  end
+
   def show
     user_id = params[:id]
     if currentt_user_id == user_id.to_i
@@ -22,9 +28,16 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
+    user = User.find(params[:id])
+    if user.update(user_params)
+      render json: user
+    else
+      render json: user.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    User.destroy(params[:id])
   end
 
   private

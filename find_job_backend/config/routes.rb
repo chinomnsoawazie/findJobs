@@ -1,82 +1,87 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      post 'log_in/create'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       get 'notes/show'
-      get 'notes/create'
-      get 'notes/update'
-      get 'notes/destroy'
+      post 'notes/create'
+      patch 'notes/update'
+      delete 'notes/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'to_dos/show'
-      get 'to_dos/create'
-      get 'to_dos/update'
-      get 'to_dos/destroy'
+      post 'to_dos/create'
+      patch 'to_dos/update'
+      delete 'to_dos/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'jobs/show'
-      get 'jobs/create'
-      get 'jobs/update'
-      get 'jobs/destroy'
+      post 'jobs/create'
+      patch 'jobs/update'
+      delete 'jobs/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'educations/show'
-      get 'educations/create'
-      get 'educations/update'
-      get 'educations/destroy'
+      post 'educations/create'
+      patch 'educations/update'
+      delete 'educations/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'certifications/show'
-      get 'certifications/create'
-      get 'certifications/update'
-      get 'certifications/destroy'
+      post 'certifications/create'
+      patch 'certifications/update'
+      delete 'certifications/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'employments/show'
-      get 'employments/create'
-      get 'employments/update'
-      get 'employments/destroy'
+      post 'employments/create'
+      patch 'employments/update'
+      delete 'employments/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'memberships/show'
-      get 'memberships/create'
-      get 'memberships/update'
-      get 'memberships/destroy'
+      post 'memberships/create'
+      patch 'memberships/update'
+      delete 'memberships/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'skills/show'
-      get 'skills/create'
-      get 'skills/update'
-      get 'skills/destroy'
+      post 'skills/create'
+      patch 'skills/update'
+      delete 'skills/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'preferences/show'
-      get 'preferences/create'
-      get 'preferences/update'
-      get 'preferences/destroy'
+      post 'preferences/create'
+      patch 'preferences/update'
+      delete 'preferences/destroy'
     end
   end
   namespace :api do
     namespace :v1 do
       get 'users/show'
-      get 'users/create'
-      get 'users/update'
-      get 'users/destroy'
+      post 'users/create'
+      patch 'users/update'
+      delete 'users/destroy'
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
