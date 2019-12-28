@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::API
-  before_action :authorized
+  before_action :authorized, only: [:auth_header]
 
   def encode_token(payload)
     # should store secret in env variable
+    JWT.encode(payload, hmac_secret, 'HS256')
+  end
+
+  def token(user_id)
+    payload = {user_id: user_id}
     JWT.encode(payload, hmac_secret, 'HS256')
   end
 
@@ -13,7 +18,7 @@ class ApplicationController < ActionController::API
 
 
   def auth_header
-    # { Authorization: 'Bearer <token>' }
+    { Authorization: 'Bearer <token>' }
     request.headers['Authorization']
   end
 
@@ -31,7 +36,7 @@ class ApplicationController < ActionController::API
   end
 
 
-  def currentt_user
+  def current_user
     if decoded_token
         user_id = decoded_token[0]['user_id']
         @user = User.find_by(id: user_id)
@@ -40,14 +45,14 @@ class ApplicationController < ActionController::API
 
 
   def logged_in?
-    !!currentt_user
+    !!current_user_id
   end
 
 
-  def currentt_user_id
+  def current_user_id
     begin
         token = request.headers["Authorization"]
-        decoded_array = JWT.decode(token, hmac_secret, true, algorithm: 'HS256')
+        decoded_array = JWT.decode(token, hmac_secret, true, {algorithm: 'HS256'})
         payload = decoded_array.first
     rescue #JWT::VerificationError
         return nil

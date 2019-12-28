@@ -1,8 +1,8 @@
-class CreateToDos < ActiveRecord::Migration[6.0]
+class CreateTasks < ActiveRecord::Migration[6.0]
   def change
-    create_table :to_dos do |t|
+    create_table :tasks do |t|
       t.belongs_to :job, null: false, foreign_key: true
-      t.string :task
+      t.string :description
       t.date :due_date
       t.boolean :done_status
 

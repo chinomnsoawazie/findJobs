@@ -1,11 +1,15 @@
 class User < ApplicationRecord
-    has_many :jobs
-    has_many :preferences
-    has_many :skills
-    has_many :memberships
-    has_many :employments
-    has_many :certifications
-    has_many :educations
-    has_many :todos, through: :jobs
-    has_many :notes, through: :jobs
+    has_secure_password
+    has_many :jobs, dependent: :destroy
+    has_many :preferences, dependent: :destroy
+    has_many :skills, dependent: :destroy
+    has_many :memberships, dependent: :destroy
+    has_many :employments, dependent: :destroy
+    has_many :certifications, dependent: :destroy
+    has_many :educations, dependent: :destroy
+    has_many :tasks, through: :jobs, dependent: :destroy
+    has_many :notes, through: :jobs, dependent: :destroy
+
+    validates_presence_of :username
+    validates_uniqueness_of :username, :case_sensitive => false
 end

@@ -2,12 +2,12 @@
 
 one:
   job: one
-  task: MyString
-  due_date: 2019-12-25
+  description: MyString
+  due_date: 2019-12-27
   done_status: false
 
 two:
   job: two
-  task: MyString
-  due_date: 2019-12-25
+  description: MyString
+  due_date: 2019-12-27
   done_status: false

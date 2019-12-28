@@ -10,6 +10,8 @@ class CreatePreferences < ActiveRecord::Migration[6.0]
       t.string :pay_range
       t.string :job_title
       t.string :industry
+      t.date :posting_date_start
+      t.date :posting_date_stop
 
       t.timestamps
     end

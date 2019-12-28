@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_022814) do
+ActiveRecord::Schema.define(version: 2019_12_28_044913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,31 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
     t.index ["user_id"], name: "index_employments_on_user_id"
   end
 
+  create_table "general_jobs", force: :cascade do |t|
+    t.string "job_title"
+    t.string "company_name"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.integer "zipcode"
+    t.integer "pay"
+    t.string "job_type"
+    t.string "intro"
+    t.string "requirement"
+    t.string "employer_strongpoints"
+    t.string "benefits"
+    t.string "education"
+    t.string "schedule"
+    t.string "description"
+    t.string "duties"
+    t.string "url"
+    t.string "industry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "jobs", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.string "job_title"
     t.string "company_name"
     t.string "country"
@@ -117,6 +140,8 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
     t.string "pay_range"
     t.string "job_title"
     t.string "industry"
+    t.date "posting_date_start"
+    t.date "posting_date_stop"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_preferences_on_user_id"
@@ -131,14 +156,14 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
     t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
-  create_table "to_dos", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.bigint "job_id", null: false
-    t.string "task"
+    t.string "description"
     t.date "due_date"
     t.boolean "done_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_id"], name: "index_to_dos_on_job_id"
+    t.index ["job_id"], name: "index_tasks_on_job_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -160,10 +185,9 @@ ActiveRecord::Schema.define(version: 2019_12_26_022814) do
   add_foreign_key "certifications", "users"
   add_foreign_key "educations", "users"
   add_foreign_key "employments", "users"
-  add_foreign_key "jobs", "users"
   add_foreign_key "memberships", "users"
   add_foreign_key "notes", "jobs"
   add_foreign_key "preferences", "users"
   add_foreign_key "skills", "users"
-  add_foreign_key "to_dos", "jobs"
+  add_foreign_key "tasks", "jobs"
 end
