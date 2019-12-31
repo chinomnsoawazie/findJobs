@@ -1,0 +1,5 @@
+1. Pass objects to forms and conditionally render
+value from passed object or null in fields to reflect
+if a new or existing item  linked the form is being handled
+
+2. Have a prop that just tells what text to pass to button. call it 'buttonText'

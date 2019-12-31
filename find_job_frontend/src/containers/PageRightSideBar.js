@@ -1,5 +1,5 @@
 import React from 'react'
-import {Column, Row} from 'react-foundation'
+import {Column} from 'react-foundation'
 
 const PageRightSideBar = () => {
     return (

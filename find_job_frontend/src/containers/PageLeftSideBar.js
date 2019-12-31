@@ -1,18 +1,20 @@
 import React from 'react'
-import { Row } from 'react-foundation/lib/components/grid'
-import CreatePrefrences from '../pictures/createPrefrences.png'
-import ViewPreferences from '../pictures/ViewPreferences.png'
-
 
 const PageLeftSideBar = () => {
     return (
         <div className='left-side-bar'>
-
-            <Row>My Favorite Jobs</Row>
-            <Row>My Applied Jobs</Row>
-            <Row>Update Profile</Row>
-            <Row>My Search Preferences</Row>
-            <Row><img width='70px' src={CreatePrefrences} alt='create preferences'/> <img width='70px' src={ViewPreferences} alt='view preferences'/></Row>
+            <ul>
+                <li> My Favorite Jobs</li>
+                <li> My Applied Jobs</li>
+                <li> Update profile </li>
+                <li> My Search preferences</li>
+                <ul>
+                    <li>Preference 1</li>
+                    <li>Preference 2</li>
+                    <li>Preference 3</li>
+                </ul>
+                <li><button className='side-bar-button'>Create Preference</button> <button className='side-bar-button'>View preferences</button></li>
+            </ul>
         </div>
     )
 }

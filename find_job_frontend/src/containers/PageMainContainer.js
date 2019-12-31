@@ -1,32 +1,63 @@
-import React from 'react'
-import {Column, Row} from 'react-foundation'
+import React, { Component } from 'react'
+// import JobCard from '../components/JobCard'
+import ViewButton from '../buttons/ViewButton'
+import DeleteButton from '../buttons/DeleteButton'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import AllJobs from './AllJobs'
 import JobCard from '../components/JobCard'
-import { Grid, Cell } from 'react-foundation/lib/components/xy-grid'
-
-const PageMainContainer = (props) => {
-    const {allJobs} = props
-    return (
-        <div className='main-container'>
-             Main container
-
-            <Grid className="display" isColumn>
-
-
-            {allJobs.map(job => <Cell large={4} ><JobCard key={job.general_job.id} job={job}/> </Cell>)}
-            
-            
-                
-
-
-            </Grid>
+import Apply from '../components/Apply'
 
 
 
 
+
+
+class PageMainContainer extends Component {
+
+
+    viewButtonText = () => {
+        return 'View Job'
+    }
+
+    removeButtonText = () => {
+        return 'Remove Job'
+    }
+
+   
+   
 
     
-        </div>
-    )
+    render() {
+        // console.log(this.props.jobToShow)
+
+        return (
+        <>
+        
+
+        <Switch>
+            <Route  exact path="/">
+                <AllJobs allJobs={this.props.allJobs} showJob={this.props.showJob} />
+            </Route>
+
+            <Route path="/jobs/general_job/:id">
+                {/* {this.showJobMainContainer} */}
+                <JobCard job={this.props.jobToShow} />
+            </Route>
+
+            <Route path="/jobs/general_jobs/:id/apply">
+                <Apply />
+            </Route>
+            
+
+        </Switch>
+        </>
+        )
+
+    }
+
+    // showJobMainContainer = () => {
+    //     return <JobCard job={this.props.jobToShow} />
+    // }
 }
 
 export default PageMainContainer
