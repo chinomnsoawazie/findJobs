@@ -20,13 +20,13 @@
 }
 
 .generic-image {
-  opacity: 0.95;
+  opacity: 1;
   transition: 0.3s;
 }
 
 .generic-image:hover {
   zoom: 120%;
-  opacity: 1;
+  opacity: '1';
 }
 
 .logo {
@@ -53,43 +53,38 @@
 }
 
 
-
-
-
-
 .main-nav-bar {
   display: grid;
-  grid-template-columns: 10% 50% 20% 20%;
+  grid-template-columns: 10% 30% 20% 40%;
   background-color: "C7BDBC";
-  position: "fixed";
   float: right;
   top: "5";
   width: 100%;
   margin-top:"3%";
   display: "flex";
-  opacity: '0.85';
+  opacity: '1';
   justify-content: "space-around";
-  padding-left: 30px;
-  padding-right: 20px;
+  padding-left: 1%;
+  padding-right: 1%;
   padding-top: 5px;
 }
 
 .left-side-bar {
-  height: 100%;
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding-top: 200px;
-  padding-left: 30px;
+  padding-top: 50%;
+  padding-left: 10%;
   
 }
 
 .right-side-bar {
-  height: 100%;
+ 
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 10%;
+  padding-left: 10%;
 }
 
 .main-container {
@@ -101,7 +96,8 @@
   grid-row-gap: 10px;
   grid-auto-flow: row;
   width: 100%;
-  padding-top: 40px;
+  text-align: center;
+  padding-top: 10%;
   padding-left: 20px;
   padding-right: 20PX;
 }
@@ -140,17 +136,101 @@
   border-radius: 12px;
 }
 
+/*Job Card*/
+
+.job-card-div{
+padding-left: 10%;
+padding-top: 10%;
+
+}
+.job-card-row {
+  margin-right: 20px;
+}
 .job-card-button:hover{
   background-color: #FFA333;
 }
 
-.job-card-row {
-  margin-right: 20px;
-}
+
 
 .side-bar-button:hover{
   background-color: #FFA333
 }
+
+.login-page {
+  width: 100%;
+  padding-top: 10%; 
+  padding-left: 40%;
+}
+
+.login-buttons{
+max-width: 100%;
+text-align: center;
+margin: 0;
+background-color: #2465b9;
+border-radius: 12px;
+color: white;
+}
+
+.login-buttons:hover{
+  background-color: #FFA333;
+}
+
+.login-buttons:active{
+  background-color: #FFA333;
+  box-shadow: 0 2px #666;
+  translate: 4px;
+}
+
+.landing-pg-button {
+  background-color: #2465b9;
+  color: white;
+  border-radius: 12px;
+  width: 100%;
+  height: 50%;
+}
+
+.landing-pg-row {
+  width: 100%;
+  text-align: center;
+  align-content: center;
+}
+
+.entry-pg{
+  width: 60%;
+  padding-top: 20%;
+  padding-left: 30%;
+  text-align: center;
+}
+
+.search-pg {
+  /* width: 100%; */
+padding-top: 10%; 
+ padding-left: 30%;
+ padding-right: 30%;
+}
+
+.search-pg-box{
+  display: block;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  flex-direction: column;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+
+.search-pg-input-wrapper{
+  margin-bottom: .5rem;
+  box-sizing: border-box;
+  display: block;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+
 
 
 

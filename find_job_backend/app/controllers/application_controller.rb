@@ -1,19 +1,18 @@
 class ApplicationController < ActionController::API
   before_action :authorized, only: [:auth_header]
 
+  def hmac_secret
+     ENV["HMAC_SECRET"]
+  end
+
   def encode_token(payload)
     # should store secret in env variable
     JWT.encode(payload, hmac_secret, 'HS256')
   end
 
-  def token(user_id)
+  def  token(user_id)
     payload = {user_id: user_id}
     JWT.encode(payload, hmac_secret, 'HS256')
-  end
-
-
-  def hmac_secret
-     ENV["HMAC_SECRET"]
   end
 
 
@@ -39,7 +38,7 @@ class ApplicationController < ActionController::API
   def current_user
     if decoded_token
         user_id = decoded_token[0]['user_id']
-        @user = User.find_by(id: user_id)
+        user = User.find_by(id: user_id)
     end
   end
 
@@ -57,7 +56,8 @@ class ApplicationController < ActionController::API
     rescue #JWT::VerificationError
         return nil
     end
-    payload["user_id"]
+    #below is lacking in his code
+    # payload["user_id"]
   end
 
 

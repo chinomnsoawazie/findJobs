@@ -1,35 +1,41 @@
 import React, { Component } from 'react'
 import JobCardNav from '../containers/JobCardNav'
+import BackButton from '../buttons/BackButton'
 
 
 
 export class JobCard extends Component {
 
+    
+
 
     render() {
+        // console.log(this.props.job)
 
-        console.log(this.props.job)
+        const buttonText = () =>{
+            return 'All Jobs'
+        }
         return (
-            <div>
+            <div className='job-card-div'>
                 <div className='row'>
-        <h4>Job Title: {this.props.job.general_job.job_title}</h4>
-
+                     <h4>Job Title: {this.props.job.job_title}</h4>
                 </div>
+
                 <div className='row' >
                     <div className='column job-card-row' >
-                        <p><strong>Company:</strong> {this.props.job.general_job.company_name}</p> 
+                        <p><strong>Company:</strong> {this.props.job.company_name}</p> 
                     </div>
                     <div className='column'>
-                        <p><strong>State: </strong>{this.props.job.general_job.state} <strong>City:</strong> {this.props.job.general_job.city} <strong>Zip Code: </strong>{this.props.job.general_job.zipcode} </p>
+                        <p><strong>State: </strong>{this.props.job.state} <strong>City:</strong> {this.props.job.city} <strong>Zip Code: </strong>{this.props.job.zipcode} </p>
                     </div>
                 </div>
 
                 <div className='row' >
                     <div className='column job-card-row'>
-                        <p> <strong>Pay:</strong> ${this.props.job.general_job.pay}</p>
+                        <p> <strong>Pay:</strong> ${this.props.job.pay}</p>
                     </div>
                     <div className='column job-card-row'>
-                        <p><strong>Job Type:</strong> {this.props.job.general_job.job_type}</p>
+                        <p><strong>Job Type:</strong> {this.props.job.job_type}</p>
                     </div>
                 </div>
                 <div className='row' >
@@ -37,7 +43,7 @@ export class JobCard extends Component {
                        <p> <strong>Summary:</strong></p>
                     </div>
                     <div className='column'>
-                        {this.props.job.general_job.intro}
+                        {this.props.job.intro}
                     </div>
                 </div>
                 <div className='row' >
@@ -45,7 +51,7 @@ export class JobCard extends Component {
                         <p><strong>Requirements:</strong></p>
                     </div>
                     <div className='column'>
-                        {this.props.job.general_job.requirement}
+                        {this.props.job.requirement}
                     </div>
                 </div>
                 <div className='row' >
@@ -53,7 +59,7 @@ export class JobCard extends Component {
                         <p><strong>Schedule:</strong></p>
                     </div>
                     <div className='column'>
-                        {this.props.job.general_job.schedule}
+                        {this.props.job.schedule}
                     </div>
                 </div>
                 <div className='row' >
@@ -61,7 +67,7 @@ export class JobCard extends Component {
                         <p><strong>Description:</strong></p>
                     </div>
                     <div className='column'>
-                        {this.props.job.general_job.description}
+                        {this.props.job.description}
                     </div>
                 </div>
                 <div className='row' >
@@ -69,38 +75,17 @@ export class JobCard extends Component {
                         <p><strong>Duties:</strong></p>
                     </div>
                     <div className='column'>
-                        {this.props.job.general_job.duties}
+                        {this.props.job.duties}
                     </div>
                 </div>
 
                 <div className='row'>
-                <JobCardNav />
-
+                    <JobCardNav  favoriteAJob={this.props.favoriteAJob} user={this.props.user} loggedIn={this.props.loggedIn} job={this.props.job}/>
                 </div>
 
-
-
-
-                {/*replace below with JobCardNav class(?) component */}
-                <div className='row' >
-                    <div className='column'>
-                        Add to Favorites
-                    </div>
-                    <div className='column'>
-                        Apply
-                    </div>
-                    <div className='column'>
-                        Notes
-                    </div>
-                    <div className='column'>
-                        ToDo
-                    </div>
-                    <div className='column'>
-                        Share
-                    </div>
+                <div className='row'>
+                    <BackButton buttonText={buttonText()}/>
                 </div>
-
-
             </div>
         )
     }

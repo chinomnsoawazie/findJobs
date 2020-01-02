@@ -3,8 +3,12 @@
 class LoginController < ApplicationController
 
   def create
-    user = User.find_by("lower(username) = ?", params[:username].downcase)
+    user = User.find_by(username: params[:username].downcase)
     if user && user.authenticate(params[:password])
+
+      # render json: {token: token(user.id), user: UserSerializer.new(user)}
+
+      #another method to do this
 
       render json: {token: token(user.id), user: UserSerializer.new(user)}
 
