@@ -118,7 +118,7 @@ var jobToSend = {
   duties: `${job.duties}`,
   url: `${job.url}`,
   industry: `${job.industry}`,
-  favorited_key: `${job.favorited_key}`
+  favorite_key: `${job.favorite_key}`
 }
 
 Axios.post( 

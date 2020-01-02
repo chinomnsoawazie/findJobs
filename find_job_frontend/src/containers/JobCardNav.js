@@ -22,8 +22,8 @@ export class JobCardNav extends Component {
         let job = this.props.job
         job.user_id = this.props.user.id
         job.favorite_key = true
-        this.props.favoriteAJob(job)
         this.setState({favorite_key: !this.state.favorite_key})
+        this.props.favoriteAJob(job)
     }
 
    
