@@ -34,6 +34,9 @@ class App extends Component {
     .then(r => {
       console.log(r.data[0])
       this.setState({allJobs: r.data})})
+      .catch((error) =>{
+        console.log(error)
+      })
     
   }
 

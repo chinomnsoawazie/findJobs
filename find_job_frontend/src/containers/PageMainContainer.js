@@ -8,6 +8,7 @@ import LoginForm from '../forms/LoginForm'
 import EntryPoint from '../components/EntryPoint'
 import SearchPage from '../components/SearchPage'
 import LoggedInEntryOptions from '../components/LoggedInEntryOptions'
+import SignUPForm from '../forms/SignUpForm'
 
 
 
@@ -65,6 +66,11 @@ const PageMainContainer = (props) => {
             <Route  path='/login'>
               {loggedIn ?  <Redirect to="/logged-in-options" /> : <LoginForm  getUser={getUser}/>}  
             </Route>
+
+            <Route path='/signup'>
+                <SignUPForm getUser={getUser}/>
+            </Route>
+
 
 
         </Switch>

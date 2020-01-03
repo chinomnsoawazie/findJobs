@@ -30,7 +30,8 @@ const PageNavBar = (props) => {
 
                     <div className="generic-image sign-up">
                         <button className="button">My Dashboard</button>
-                        </div>
+                    </div>
+
                    <LogOut user={user} logOut={logOut}/>
             </nav>
         </header>
@@ -48,10 +49,13 @@ const PageNavBar = (props) => {
                     </div>
                     </NavLink>
                     
+                    <NavLink to='/signup'>
                     <div width='20%' className="generic-image sign-up">
                         <img src={notificationIcon} height='32' width='32' className="notification-icon" alt="notifications"/>
                         <button className="button">Sign Up</button>
-                        </div>
+                    </div>
+                    </NavLink>
+
                    <Login/>
             </nav>
         </header>

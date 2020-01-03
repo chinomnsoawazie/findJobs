@@ -14,7 +14,7 @@ const EntryPoint = () => {
                         <strong className='landing-pg-row'>To have the best experience</strong>
                 </div>
 
-                <NavLink to='login'>
+                <NavLink to='/login'>
                 <div className='row'>
                     <button className='landing-pg-button'>Sign in</button>
                 </div><br/>
@@ -23,15 +23,18 @@ const EntryPoint = () => {
                 <div className='row landing-pg-row'>
                     <p className='landing-pg-row'><strong >or</strong></p>
                 </div>
+                
+                <NavLink to='/signup'>
                 <div className='row '>
                     <button className='landing-pg-button'>Sign up</button>
                 </div><br/>
+                </NavLink>
 
                 <div className='row'>
                 <strong className='landing-pg-row'>You can also just search for Jobs</strong>
                 </div>
 
-                <NavLink to='search-jobs'>
+                <NavLink to='/search-jobs'>
                     <div className='row'>
                         <button className='landing-pg-button'>Search for jobs</button>
                     </div>
