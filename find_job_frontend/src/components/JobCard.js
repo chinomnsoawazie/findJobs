@@ -25,7 +25,7 @@ export class JobCard extends Component {
                     <div className='column job-card-row' >
                         <p><strong>Company:</strong> {this.props.job.company_name}</p> 
                     </div>
-                    <div className='column'>
+                    <div className='column job-card-row'>
                         <p><strong>State: </strong>{this.props.job.state} <strong>City:</strong> {this.props.job.city} <strong>Zip Code: </strong>{this.props.job.zipcode} </p>
                     </div>
                 </div>

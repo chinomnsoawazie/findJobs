@@ -3,18 +3,21 @@ import React from 'react'
 const PageLeftSideBar = () => {
     return (
         <div className='left-side-bar'>
-            <ul>
-                <li> My Favorite Jobs</li>
-                <li> My Applied Jobs</li>
-                <li> Update profile </li>
-                <li> My Search preferences</li>
+            {/*user router sent to routed for each button */}
+               <button className='side-bar-button'>My favorite jobs</button><br/>
+               <button className='side-bar-button'>My applied jobs</button><br/>
+               <button className='side-bar-button'>Update profile</button><br/>
+               <button className='side-bar-button'>My search preferences</button><br/>
                 <ul>
-                    <li>Preference 1</li>
-                    <li>Preference 2</li>
-                    <li>Preference 3</li>
+                {/* {preferences.map(preference => <li><button>{preference.name}</button></li>)} */}
+                    <li><button>preference</button></li>
+                    <li><button>preference</button></li>
+                    <li><button>preference</button></li>
                 </ul>
-                <li><button className='side-bar-button'>Create Preference</button> <button className='side-bar-button'>View preferences</button></li>
-            </ul>
+
+                <button className='side-bar-button'>Create Preference</button> <button className='side-bar-button'>View preferences</button>
+
+          
         </div>
     )
 }

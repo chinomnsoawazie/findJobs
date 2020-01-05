@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 export class SignUpForm extends Component {
     state ={
@@ -26,11 +27,13 @@ export class SignUpForm extends Component {
  
         axios.post('http://localhost:3000/users', newUser)
         .then(r => {
-            console.log(r)
-            // this.props.getUser(r.data)
-        }).catch((error) =>{
+            this.props.getUser(r.data)
+        })
+        .then(() => this.props.history.push('/logged-in-options'))
+        .catch((error) =>{
             console.log(error)
         })
+
     }
 
 
@@ -39,7 +42,6 @@ export class SignUpForm extends Component {
 
             <div className='login-page'>
                 <form onSubmit={this.handleSubmit}>
-
                     <div className='row'>
                         <label>
                             <strong>First Name:</strong>
@@ -86,14 +88,15 @@ export class SignUpForm extends Component {
                     </div>
                     
                     
-                    
+
                     <div className='row'>
-                        <button className='login-buttons' type='submit' value='login'>Create account</button>
+                        <button  className='login-buttons' type='submit' value='login'>Create account</button>
                     </div>
+                 
                 </form>
             </div>
         )
     }
 }
 
-export default SignUpForm
+export default withRouter(SignUpForm)

@@ -33,10 +33,9 @@ Certification.create(user_id: User.first.id, description: 'Certified Fireman', i
 Education.create(user_id: User.first.id, name_of_institution: Faker::Educator.university, degree_or_certificate: Faker::Educator.degree, gpa: 3.5, start_date: '2001/01/09', end_date: '2006/06/10', country: 'Nigeria', state: 'Anambra', city: 'Awka', major: 'Electrical Electronics Engineering', minor: 'N/A')
 Membership.create(user_id: User.first.id, organization: 'IEEE', start_date: '2001/01/01', end_date: '2020/01/01')
 
-months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-year = [1990, 1991, 1992, 1993, 1994, 2004, 2013, 1999]
+
 4.times do
-    Employment.create(user_id: User.first.id, company_name: Faker::Company.name, job_title: Faker::Job.title, start_month: months.sample, start_year: year.sample, end_month: months.sample, end_year: year.sample, duties: Faker::Lorem.paragraph(sentence_count: 3, supplemental: true, random_sentences_to_add: 5), country: 'United States', state: Faker::Address.state, city: Faker::Address.city, currently_work_here: Faker::Boolean.boolean)
+    Employment.create(user_id: User.first.id, company_name: Faker::Company.name, job_title: Faker::Job.title, start_month: Faker::Number.between(from: 1, to: 12), start_year: Faker::Number.between(from: 1980, to: 2000), end_month: Faker::Number.between(from: 1, to: 12), end_year: Faker::Number.between(from: 2001, to: 2020), duties: Faker::Lorem.paragraph(sentence_count: 3, supplemental: true, random_sentences_to_add: 5), country: 'United States', state: Faker::Address.state, city: Faker::Address.city, currently_work_here: Faker::Boolean.boolean)
 end
 
 5.times do 

@@ -52,6 +52,7 @@ class App extends Component {
     }
 }
 
+
 getUser = (fetchedUser) => {
   let user = fetchedUser.user
   let token = fetchedUser.token
@@ -75,7 +76,7 @@ getUser = (fetchedUser) => {
     userCertifications: user.certifications,
     userJobs: user.jobs,
     userJobNotes: user.notes,
-    userToos: user.tasks  })
+    userToos: user.tasks  }, )
 }
 
 logOut = () =>{
@@ -129,17 +130,15 @@ Axios.post(
   jobToSend,
   auth
 ).then((response) => {
-  console.log(response)
 }).catch((error) => {
   console.log(error)
 });
-
-  // console.log(job)
 }
 
 
 
   render() {
+    console.log(this.state.allJobs)
     return (
       <>
       <div className='nav-bar'>
@@ -163,7 +162,7 @@ Axios.post(
           <PageMainContainer  setJobSearchResults={this.setJobSearchResult} user={this.state.user} getUser={this.getUser}
            allJobs = {this.state.allJobs} showJob={this.showJob} jobToShow={this.state.jobToShow}
             searchResults={this.state.jobSearchResult} loggedIn={this.state.loggedIn} toggleAllJobsClicked={this.toggleAllJobsClicked}
-            favoriteAJob={this.favoriteAJob} 
+            favoriteAJob={this.favoriteAJob} userEmployments={this.state.userEmployments}
             />
 
 </div>

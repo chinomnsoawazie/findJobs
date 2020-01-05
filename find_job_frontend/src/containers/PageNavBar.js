@@ -18,9 +18,14 @@ const PageNavBar = (props) => {
         if(loggedIn){
           return  <header>
             <nav className='main-nav-bar' style={{ borderBottom: "solid", borderWidth: "2px", borderColor: "#929ca7", borderRadius: "30px",}}>
+                    <NavLink to='/logged-in-options'>
                     <div  className="generic-image logo"> 
+                    
                     <img src={logo} height='32' width='32'  className="logo" alt="logo"/>
+                    <button className="button"> Home</button>
                     </div>
+
+                    </NavLink>
 
                     <NavLink to='/search-jobs'>
                     <div  className="generic-image search-icon" >
@@ -39,9 +44,14 @@ const PageNavBar = (props) => {
 
             return  <header>
             <nav className='main-nav-bar' style={{ borderBottom: "solid", borderWidth: "2px", borderColor: "#929ca7", borderRadius: "30px",}}>
+                    
+                    <NavLink to='/'>
+
                     <div width='20%' className="generic-image logo"> 
-                    <img src={logo} height='32' width='32'  className="logo" alt="logo"/>
+                        <img src={logo} height='32' width='32'  className="logo" alt="logo"/>
+                        <button className="button"> Home</button>
                     </div>
+                    </NavLink>
 
                     <NavLink to='/search-jobs'>
                     <div  className="generic-image search-icon" >

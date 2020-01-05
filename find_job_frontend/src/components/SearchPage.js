@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import searchJob from '../pictures/searchJob.png'
-import {NavLink, Redirect} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 export class SearchPage extends Component {
 
@@ -26,11 +26,7 @@ export class SearchPage extends Component {
             return job.country.toLowerCase().includes(this.state.where.toLowerCase()) || job.state.toLowerCase().includes(this.state.where.toLowerCase()) || job.city.toLowerCase().includes(this.state.where.toLowerCase()) || job.zipcode.toString().includes(this.state.where)
         })
 
-
         let filteredJobs = filteredByWhereJobs.concat(filteredByWhatJobs)
-
-        //distinct job will serve dual function of rendering filter result and recreating the objects in a loggedIn user consumable way
-
         let distinctJobs = Array.from(new Set(filteredJobs.map(job => job.id)))
                             .map(id => {
                                 return {
@@ -40,7 +36,7 @@ export class SearchPage extends Component {
                                     company_name: filteredJobs.find(job => job.id === id).company_name,
                                     country: filteredJobs.find(job => job.id === id).country,
                                     state: filteredJobs.find(job => job.id === id).state,
-                                    city: filteredJobs.find(job => job.id === id).job_title,
+                                    city: filteredJobs.find(job => job.id === id).city,
                                     zipcode: filteredJobs.find(job => job.id === id).zipcode,
                                     pay: filteredJobs.find(job => job.id === id).pay,
                                     job_type: filteredJobs.find(job => job.id === id).job_type,
@@ -60,26 +56,15 @@ export class SearchPage extends Component {
                                     updated_at: filteredJobs.find(job => job.id === id).updated_at,
                                 };
                             })
-
                             this.props.setJobSearchResults(distinctJobs)
-
-
-
-        // console.log(filteredByWhatJobs)
-        // console.log(filteredJobs)
-        // console.log(distinctJobs)
+                            this.props.history.push('search-jobs-results')
       
     }
 
 
     render() {
-        // console.log(this.state.what.toString())
-        // console.log(this.state.where)
-        // let firstJob = this.props.allJobs[0]
-        // console.log(firstJob.job_title)
 
         return (
-
             <div className='search-pg'>
                 <form onSubmit={this.handleSubmit}>
 
@@ -112,21 +97,11 @@ export class SearchPage extends Component {
                             <input maxLength='50'type='text'   name='where' value={this.state.where} onChange={this.handleChange} />
                         </div>
                     </div>
-
-                    {/* <NavLink to='/jobs'>
-                        <div> */}
-
-                        <button className='login-buttons' type='submit' value='login'> <img src={searchJob} height='20' width='20'  alt="search"/>Find jobs</button>
-
-                        {/* </div>
-
-
-                    </NavLink> */}
-
+                        <button  className='login-buttons' type='submit' value='login'> <img src={searchJob} height='20' width='20'  alt="search"/>Find jobs</button>
                 </form>
             </div>
         )
     }
 }
 
-export default SearchPage
+export default withRouter(SearchPage)

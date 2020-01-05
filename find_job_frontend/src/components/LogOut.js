@@ -8,8 +8,8 @@ const LogOut = (props) => {
 
 
         <div  className="generic-image sign-in">
-        <NavLink to='/'>
             Welcome <strong>{user.first_name}</strong>
+        <NavLink to='/'>
             <button onClick={() => logOut()}  className="button" >Logout</button>
         </NavLink>
         </div>

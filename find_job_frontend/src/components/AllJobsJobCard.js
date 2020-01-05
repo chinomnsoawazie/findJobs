@@ -12,12 +12,17 @@ const AllJobsJobCard = (props) => {
    const removeButtonText = () => {
         return 'Remove Job'
     }
+
+
    
     return (
+
         <div>
-            <div  className='row'>Title: {job.job_title}</div>
-                        <div  className='row'>Pay: ${job.pay}</div> 
-                        <div  className='row'>Location: {job.city}, {job.state} </div>
+        {/*add a remove button later to remove a job from results */}
+        {console.log(job)}
+            <div  className='row'><strong>Title: </strong> {job.job_title}</div>
+                        <div  className='row job-card-row'><strong>Pay: </strong> ${job.pay}</div> 
+                        <div  className='row job-card-row'><strong>Location: </strong> {job.city}, {job.state} </div>
                         <div  className='row'><ViewButton  key={job.id + 'view'} buttonText={viewButtonText()} showJob={props.showJob} job={props.job}/> </div>
         </div>
     )

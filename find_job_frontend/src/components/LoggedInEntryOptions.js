@@ -19,10 +19,11 @@ const LoggedInEntryOptions = (props) => {
                 </div><br/>
                 </NavLink>
 
-                
+                <NavLink to='profile-entry-point'>
                 <div className='row '>
                     <button className='landing-pg-button'>View Profile</button>
                 </div><br/>
+                </NavLink>
 
                 <NavLink to='search-jobs'>
                     <div className='row'>
