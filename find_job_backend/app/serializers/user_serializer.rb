@@ -4,6 +4,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :skills
   has_many :memberships
   has_many :employments
+  has_many :educations
   has_many :certifications
   has_many :jobs
   has_many :notes, through: :jobs

@@ -1,5 +1,5 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter, NavLink} from 'react-router-dom'
 
 const PersonalInfoCard = (props) => {
     const {user} = props
@@ -48,7 +48,13 @@ const PersonalInfoCard = (props) => {
                     <div className='row'>
                         
                     <button onClick={() => props.history.push('profile-info')} className='profile-entry-button'>Edit personal information</button>
-                    <button onClick={props.history.push('profile-entry-point')} className='profile-entry-button'>Back to profile</button>
+                    {/*line of code below prevents navigation to this page from profile entry point when the 
+                    view button is clicked on that page */}
+
+                    <NavLink to='/profile-entry-point'>
+                    <button  className='profile-entry-button'>Back to profile</button>
+                    </NavLink>
+
                     </div>
         </div>
     )

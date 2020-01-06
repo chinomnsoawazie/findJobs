@@ -15,13 +15,16 @@ class App extends Component {
     allJobs: [],
 
     loggedIn: false,
-    allJobsClicked: false,
+    fromDashboard: false,
+    showFavoriteJobs: false,
+    showAppliedJobs: false,
 
     user: {},
     userPreferences: [],
     userSkills: [],
     userMemberships: [],
     userEmployments: [],
+    userEducations: [],
     userCertifications: [],
     userNotes: [],
     userToDos: []
@@ -32,7 +35,7 @@ class App extends Component {
     Axios.get('http://localhost:3000/jobs')
     
     .then(r => {
-      console.log(r.data[0])
+      // console.log(r.data[0])
       this.setState({allJobs: r.data})})
       .catch((error) =>{
         console.log(error)
@@ -57,7 +60,7 @@ getUser = (fetchedUser) => {
   let user = fetchedUser.user
   let token = fetchedUser.token
   let newJobsArray = this.state.allJobs.concat(user.jobs)
-  console.log(token)
+  // console.log(user)
 
   this.setState({
     token: token,
@@ -73,6 +76,7 @@ getUser = (fetchedUser) => {
     userSkills: user.skills,
     userMemberships: user.memberships,
     userEmployments: user.employments,
+    userEducations: user.educations,
     userCertifications: user.certifications,
     userJobs: user.jobs,
     userJobNotes: user.notes,
@@ -90,8 +94,20 @@ setJobSearchResult = (results) => {
   this.setState({jobSearchResult: results})
 }
 
-toggleAllJobsClicked = () => {
-  this.setState({allJobsClicked: !this.state.allJobsClicked})
+toggleFromDashboard = (value) => {
+  console.log(value)
+  if(value === 'favorite-jobs'){
+    this.setState({
+      fromDashboard: !this.state.fromDashboard,
+      showFavoriteJobs: !this.state.showFavoriteJobs
+    })
+  }else{
+    this.setState({
+      fromDashboard: !this.state.fromDashboard,
+      showAppliedJobs: !this.state.showAppliedJobs
+    })
+  }
+
 }
 
 favoriteAJob = (job) => {
@@ -135,10 +151,16 @@ Axios.post(
 });
 }
 
+resetShowFavJobsAndShowAppliedJobs = () =>{
+  this.setState({
+    showFavoriteJobs: false,
+    showAppliedJobs: false
+  })
+}
+
 
 
   render() {
-    console.log(this.state.allJobs)
     return (
       <>
       <div className='nav-bar'>
@@ -161,8 +183,11 @@ Axios.post(
 
           <PageMainContainer  setJobSearchResults={this.setJobSearchResult} user={this.state.user} getUser={this.getUser}
            allJobs = {this.state.allJobs} showJob={this.showJob} jobToShow={this.state.jobToShow}
-            searchResults={this.state.jobSearchResult} loggedIn={this.state.loggedIn} toggleAllJobsClicked={this.toggleAllJobsClicked}
-            favoriteAJob={this.favoriteAJob} userEmployments={this.state.userEmployments}
+            searchResults={this.state.jobSearchResult} loggedIn={this.state.loggedIn} toggleFromDashboard={this.toggleFromDashboard}
+            favoriteAJob={this.favoriteAJob} userEmployments={this.state.userEmployments} userEducations={this.state.userEducations}
+            userSkills={this.state.userSkills} userMemberships={this.state.userMemberships} userCertifications={this.state.userCertifications}
+            userJobs={this.state.userJobs} fromDashboard={this.state.fromDashboard} showAppliedJobs={this.state.showAppliedJobs}
+            showFavoriteJobs={this.state.showFavoriteJobs} resetShowFavJobsAndShowAppliedJobs={this.resetShowFavJobsAndShowAppliedJobs}
             />
 
 </div>

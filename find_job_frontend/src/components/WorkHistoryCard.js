@@ -3,7 +3,12 @@ import {withRouter} from 'react-router-dom'
 
 const WorkHistoryCard = (props) => {
     const {employment, monthDisplay} = props
-    console.log(employment)
+    // console.log(employment)
+
+    const handleDelete = (employment) =>{
+        {/*a function to deleted emploument  and then redirects to same page and hopefully renders with the deleted history excluded*/}
+        props.history.push('/profile-work-history')
+    }
 
     return (
         <>
@@ -36,9 +41,12 @@ const WorkHistoryCard = (props) => {
             </div>
                 
             <div className='row'>
-                    <button onClick={() => this.props.history.push('/edit-work-history')} className='profile-entry-button'>Edit work history</button>
-                    <button onClick={() => this.props.history.push('/profile-entry-point')} className='profile-entry-button'>Delete Work History</button>
+                    <button onClick={() => props.history.push('/edit-work-history')} className='profile-entry-button'>Edit</button>
+                    <button onClick={handleDelete} className='profile-entry-button'>Delete</button>
             </div><br/>
+            {/* <NavLink to='/profile-entry-point'>
+                    <button  className='profile-entry-button'>Back to profile</button>
+                    </NavLink> */}
         </>
     )
 }

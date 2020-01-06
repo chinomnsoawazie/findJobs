@@ -239,6 +239,30 @@ padding-top: 10%;
   flex-direction: column;
 }
 
+.dashboard-buttons{
+  max-width: 100%;
+  text-align: center;
+  margin: 0;
+  width: 90%;
+  background-color: #2465b9;
+  border-radius: 12px;
+  color: white;
+  }
+  
+  .dashboard-buttons:hover{
+    background-color: #FFA333;
+  }
+  
+  .dashboard-buttons:active{
+    background-color: #FFA333;
+    box-shadow: 0 2px #666;
+    translate: 4px;
+  }
+
+ 
+
+
+
 
 
 

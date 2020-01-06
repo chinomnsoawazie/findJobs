@@ -19,7 +19,7 @@ const AllJobsJobCard = (props) => {
 
         <div>
         {/*add a remove button later to remove a job from results */}
-        {console.log(job)}
+        {/* {console.log(job)} */}
             <div  className='row'><strong>Title: </strong> {job.job_title}</div>
                         <div  className='row job-card-row'><strong>Pay: </strong> ${job.pay}</div> 
                         <div  className='row job-card-row'><strong>Location: </strong> {job.city}, {job.state} </div>

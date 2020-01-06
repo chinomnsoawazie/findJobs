@@ -21,7 +21,7 @@ export class LoginForm extends Component {
  
         axios.post('http://localhost:3000/login', user)
         .then(r => {
-            console.log(r.data.user)
+            // console.log(r.data.user)
             this.props.getUser(r.data)
         })
     }
